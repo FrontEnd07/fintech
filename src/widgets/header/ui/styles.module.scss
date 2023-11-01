@@ -1,0 +1,12 @@
+.main {
+    height: var(--header-height);
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: height var(--duration);
+    height: 100%;
+}

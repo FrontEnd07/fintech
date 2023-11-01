@@ -1,0 +1,13 @@
+:root {
+    // colors
+    --color-white: #fff;
+
+
+    @media (min-width: 1200px) {
+        --header-height: 114px
+    }
+
+    @media (max-width: 1199px) {
+        --header-height: 97px
+    }
+}

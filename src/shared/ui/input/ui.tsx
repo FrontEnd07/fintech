@@ -19,7 +19,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({ className, hasE
         }
     }
 
-    return <div className={clsx(styles.main)}>
+    return <div className={clsx(styles.main, className)}>
         <input
             ref={ref}
             onFocus={() => setIsFocus(true)}

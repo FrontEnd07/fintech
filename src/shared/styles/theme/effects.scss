@@ -1,0 +1,11 @@
+@mixin shadow-small {
+    box-shadow: 0 4px 120px rgda (175, 173, 181, 0.15);
+}
+
+@mixin shadow-medium {
+    box-shadow: 0 4px 20px rgba(175, 173, 171, 0.2);
+}
+
+@mixin shadow-chekbox {
+    box-shadow: 0 4px 120px #afadb5;
+}

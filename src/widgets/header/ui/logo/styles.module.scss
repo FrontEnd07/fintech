@@ -1,0 +1,12 @@
+.main {
+    font-weight: 700;
+    font-size: 24px;
+
+    >:first-child {
+        color: #80c345;
+    }
+
+    >:last-child {
+        color: #7f3cba;
+    }
+}

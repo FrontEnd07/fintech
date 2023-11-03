@@ -1,3 +1,10 @@
 export interface SpritesMap {
-    "common": "search" | "close"
-}
+    'common': 'close' | 'search' | 'search_bar'
+  }
+export const SPRITES_META: {
+        'common': Array<'close' | 'search' | 'search_bar'>
+      } = {
+    'common': ['close',
+'search',
+'search_bar']
+  };

@@ -1,0 +1,54 @@
+@use "shared/styles" as *;
+
+.main {
+    display: flex;
+
+    @include mobile {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    @include desktop {
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .search {
+        &_bar {
+            position: relative;
+
+            @include shadow-medium;
+
+            @include mobile {
+                max-height: 54px;
+            }
+
+            @include desktop {
+                max-height: 84px;
+                flex-grow: 1;
+            }
+        }
+
+        &_filter {}
+    }
+
+    .input {
+        padding: 24px 50px;
+        padding-right: 176px;
+        padding-left: 75px;
+    }
+
+    .icon {
+        position: absolute;
+        display: block;
+        left: 24px;
+        width: 32px;
+        height: 32px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        use {
+            filter: brightness(0) saturate(100%) invert(86%) sepia(6%) saturate(264%) hue-rotate(214deg) brightness(82%) contrast(86%);
+        }
+    }
+}

@@ -1,6 +1,8 @@
 .main {
     height: var(--header-height);
     width: 100%;
+    border-bottom: 1px solid;
+    border-bottom-color: var(--color-light-grey);
 }
 
 .container {

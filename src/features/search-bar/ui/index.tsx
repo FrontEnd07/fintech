@@ -2,6 +2,7 @@ import clsx from "clsx"
 import { Icon } from "shared/ui/icon"
 import { Input } from "shared/ui/input"
 import styles from "./styles.module.scss"
+import { Button } from "shared/ui/button"
 
 export const SearchBar = () => {
     return <div className={clsx(styles.main)}>
@@ -11,7 +12,7 @@ export const SearchBar = () => {
                 placeholder="Одежда, Электроника, Другое"
             />
             <Icon type="common" name="search" className={styles.icon} />
-            <button>Поиск</button>
+            <Button className={styles.button} skeletonLoading={false}>Поиск</Button>
         </div>
         <div className={clsx(styles.serach_filter)}>
             Filter

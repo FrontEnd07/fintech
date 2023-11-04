@@ -59,5 +59,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 className,
             )}
         >
+            {children}
         </Element>
     })

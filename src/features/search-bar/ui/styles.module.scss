@@ -17,6 +17,14 @@
         &_bar {
             position: relative;
 
+            >.input {
+                >input {
+                    padding: 24px 50px;
+                    padding-right: 176px;
+                    padding-left: 75px;
+                }
+            }
+
             @include shadow-medium;
 
             @include mobile {
@@ -32,12 +40,6 @@
         &_filter {}
     }
 
-    .input {
-        padding: 24px 50px;
-        padding-right: 176px;
-        padding-left: 75px;
-    }
-
     .icon {
         position: absolute;
         display: block;
@@ -50,5 +52,13 @@
         use {
             filter: brightness(0) saturate(100%) invert(86%) sepia(6%) saturate(264%) hue-rotate(214deg) brightness(82%) contrast(86%);
         }
+    }
+
+    .button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 28px;
+        border-radius: 0px;
     }
 }

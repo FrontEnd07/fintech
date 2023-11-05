@@ -1,3 +1,5 @@
+@import 'shared/styles';
+
 .btn {
     position: relative;
     display: inline-flex;
@@ -145,10 +147,18 @@
 }
 
 .regular {
-    font-size: 13.2px;
+    font-size: 12px;
     line-height: 15px;
     padding: 9px 15px 10px;
-    min-height: 44px;
+
+    @include mobile {
+        min-height: 24px;
+    }
+
+    @include desktop {
+        min-height: 44px;
+        font-size: 13.2px;
+    }
 }
 
 .medium {

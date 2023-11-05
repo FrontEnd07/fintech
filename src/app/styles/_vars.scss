@@ -12,4 +12,8 @@
     @media (max-width: 1199px) {
         --header-height: 97px
     }
+
+    @media (max-width: 1024px) {
+        --header-height: 75px;
+    }
 }

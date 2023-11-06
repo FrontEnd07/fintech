@@ -45,6 +45,5 @@ export const DropDown = (
                 <Icon type="common" name="chevron" />
             </span>
         </div>
-        <div></div>
     </div>
 }

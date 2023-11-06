@@ -1,4 +1,4 @@
-import { SelectOption } from "../../drop-down/types";
+import { SelectOption } from "../types";
 
 export const generes: SelectOption[] = [
     { value: "", label: "Фильтр" },

@@ -73,3 +73,9 @@
     background-color: transparent;
     cursor: pointer;
 }
+
+*,
+::after,
+::before {
+    box-sizing: inherit;
+}

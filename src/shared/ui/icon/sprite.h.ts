@@ -1,10 +1,28 @@
 export interface SpritesMap {
-    'common': 'chevron' | 'close' | 'search'
+    'common': 'bookmark-slash' | 'bookmark' | 'bookmark2' | 'burger' | 'check' | 'chevron' | 'close' | 'edit' | 'eye-closed' | 'eye' | 'filters' | 'google' | 'history' | 'link' | 'play' | 'profile' | 'search' | 'settings' | 'share' | 'sort' | 'star'
   }
 export const SPRITES_META: {
-        'common': Array<'chevron' | 'close' | 'search'>
+        'common': Array<'bookmark-slash' | 'bookmark' | 'bookmark2' | 'burger' | 'check' | 'chevron' | 'close' | 'edit' | 'eye-closed' | 'eye' | 'filters' | 'google' | 'history' | 'link' | 'play' | 'profile' | 'search' | 'settings' | 'share' | 'sort' | 'star'>
       } = {
-    'common': ['chevron',
+    'common': ['bookmark-slash',
+'bookmark',
+'bookmark2',
+'burger',
+'check',
+'chevron',
 'close',
-'search']
+'edit',
+'eye-closed',
+'eye',
+'filters',
+'google',
+'history',
+'link',
+'play',
+'profile',
+'search',
+'settings',
+'share',
+'sort',
+'star']
   };

@@ -25,7 +25,7 @@ export const DropDown = (
         label
     }: DropDownProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const select = options.find(option => option?.value === value) ?? options[0];
+    const selected = options.find(option => option?.value === value) ?? options[0];
     const selectRef = useRef<HTMLDivElement>(null);
 
     const handlerClose = () => setIsOpen(prev => !prev)
@@ -40,10 +40,24 @@ export const DropDown = (
     return <div className={clsx(styles.main, isOpen && styles.isOpen, className)} ref={selectRef}>
         <div onClick={() => setIsOpen(prev => !prev)} className={clsx(styles.button)}>
             {startIcon && <span className={styles.icon}>{startIcon}</span>}
-            <span className={clsx(styles.value)}>{select.value ? select.label : label}</span>
+            <span className={clsx(styles.value)}>{selected.value ? selected.label : label}</span>
             <span className={clsx(styles.arrow)}>
                 <Icon type="common" name="chevron" />
             </span>
+        </div>
+        <div className={clsx(styles.options, styles[placement])}>
+            {options?.map((option) => {
+                const isSelected = selected.value === option?.value;
+                return <div
+                    onClick={() => handlerSelect(option)}
+                    key={option.label}
+                    className={clsx(styles.option, isSelected && styles.isSelected)}>
+                    {option?.label}
+                    <span className={styles.check}>
+                        <Icon type="common" name="check" />
+                    </span>
+                </div>
+            })}
         </div>
     </div>
 }

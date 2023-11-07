@@ -26,6 +26,7 @@ export const SearchBar = () => {
             <DropDown
                 options={generes}
                 value={undefined}
+                startIcon={<Icon type="common" name='filters' />}
                 label={"Категория"}
                 onSelect={(option) => handlerSelect(option)}
             />

@@ -1,4 +1,6 @@
 .main {
+    position: relative;
+
     >.button {
         display: flex;
         align-items: center;
@@ -8,6 +10,7 @@
         border-radius: var(--radius);
         cursor: pointer;
         transition: background-color var(--duration);
+
 
         &:hover {
             background-color: rgba(153, 153, 191, 0.2);
@@ -50,7 +53,86 @@
         }
     }
 
-    >.options {
+    &.isOpen {
+        .arrow {
+            transform: rotate(90deg);
+        }
+
+        .button {
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .options {
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+        }
+
+        .options {
+            display: block;
+        }
+    }
+
+    .options {
         position: absolute;
+        width: 100%;
+        border-radius: var(--radius);
+        background-color: var(--color-light-grey);
+        max-height: 385px;
+        overflow: hidden;
+        overflow-y: auto;
+        display: none;
+        overscroll-behavior: contain;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        >.option {
+            position: relative;
+            font-weight: 300;
+            padding: 15px;
+            font-size: 13px;
+            line-height: 20px;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color var(--duration);
+
+            &.isSelected {
+                font-weight: 400;
+                background-color: rgba(153, 153, 191, 0.2);
+
+
+                .check {
+                    display: block;
+                    filter: brightness(0) saturate(100%) invert(86%) sepia(6%) saturate(264%) hue-rotate(214deg) brightness(82%) contrast(86%);
+                }
+            }
+
+            &:hover {
+                background-color: rgba(153, 153, 191, 0.2);
+            }
+        }
+
+        .check {
+            svg {
+                display: block;
+            }
+        }
+    }
+
+    .check {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 17px;
+        width: 27px;
+        height: 27px;
+        transform: translateY(-50%);
+        display: none;
+
+        svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
     }
 }

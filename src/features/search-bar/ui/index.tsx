@@ -1,17 +1,15 @@
 import clsx from "clsx"
-import { Icon } from "shared/ui/icon"
-import { Input } from "shared/ui/input"
-import styles from "./styles.module.scss"
-import { Button } from "shared/ui/button"
-import { DropDown } from "features/drop-down"
 import { generes } from "../config"
-import { SelectOption } from "../types"
+import { filtersModel } from "../model"
+import { useRouter } from "next/router"
+import styles from "./styles.module.scss"
+import { useEvent } from "effector-react"
+import { DropDown } from "features/drop-down"
+import { Input, Button, Icon } from "shared/ui"
 
 export const SearchBar = () => {
-
-    const handlerSelect = (event: SelectOption) => {
-        console.log(event)
-    }
+    const { query } = useRouter()
+    const optionSelect = useEvent(filtersModel.optionSelect);
 
     return <div className={clsx(styles.main)}>
         <div className={clsx(styles.search_bar)}>
@@ -25,10 +23,10 @@ export const SearchBar = () => {
         <div className={clsx(styles.serach_filter)}>
             <DropDown
                 options={generes}
-                value={undefined}
+                value={query.category}
                 startIcon={<Icon type="common" name='filters' />}
                 label={"Категория"}
-                onSelect={(option) => handlerSelect(option)}
+                onSelect={(option) => optionSelect({ category: option.value })}
             />
         </div>
     </div>

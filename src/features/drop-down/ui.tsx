@@ -4,9 +4,10 @@ import styles from "./styles.module.scss";
 import type { SelectOption } from "./types";
 import { ReactNode, useState, useRef } from "react";
 import { useOnClickOutside } from "shared/lib/use-on-click-outside";
+
 interface DropDownProps {
     options: SelectOption[];
-    value: string | string[] | undefined;
+    value: String | string[] | undefined;
     placement?: 'bottom-start' | 'bottom-end';
     label: string;
     className?: string;
@@ -25,10 +26,10 @@ export const DropDown = (
         label
     }: DropDownProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const selected = options.find(option => option?.value === value) ?? options[0];
+    const selected = options.find(option => option?.label === value) ?? options[0];
     const selectRef = useRef<HTMLDivElement>(null);
-
-    const handlerClose = () => setIsOpen(prev => !prev)
+    
+    const handlerClose = () => setIsOpen(false)
 
     useOnClickOutside(selectRef, handlerClose)
 

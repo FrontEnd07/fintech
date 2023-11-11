@@ -10,9 +10,14 @@
   },
   "dependencies": {
     "@neodx/svg": "^0.6.1",
+    "axios": "^1.6.1",
     "clsx": "^2.0.0",
+    "effector": "^22.8.7",
+    "effector-react": "^22.5.4",
     "next": "^13.3.0",
+    "nextjs-effector": "^0.52.0",
     "normalize.css": "^8.0.1",
+    "querystring": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
     "sass": "^1.69.5"

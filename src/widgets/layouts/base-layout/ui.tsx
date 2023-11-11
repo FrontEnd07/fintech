@@ -4,6 +4,6 @@ import { Header } from "widgets/header"
 export const BaseLayout = ({ children }: PropsWithChildren) => {
     return <>
         <Header />
-        <div className="main">Test</div>
+        <div className="main">{children}</div>
     </>
 }

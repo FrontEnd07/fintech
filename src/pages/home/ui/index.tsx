@@ -1,7 +1,7 @@
-import { CatalogHome } from "./catalog-home"
+import { Catalog } from "widgets/catalog"
 
 export const HomePage = () => {
     return <>
-        <CatalogHome />
+        <Catalog title="Количество продуктов: " />
     </>
 }

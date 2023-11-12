@@ -9,8 +9,9 @@ interface CatalogProps {
 }
 
 export const Catalog = ({ title }: CatalogProps) => {
+    
     const params = useStore(filtersModel.$params)
-    console.log(params)
+
     return <section className={styles.main}>
         <div className={clsx('container', styles.container)}>
             <div className={styles.top}>

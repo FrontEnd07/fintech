@@ -4,17 +4,17 @@ import { createEvent, createStore, sample } from "effector";
 import { navigationModel } from "shared/navigation";
 
 export const filtersModel = atom(() => {
-    const optionSelect = createEvent<ParsedUrlQuery>();
+    const optionSelected = createEvent<ParsedUrlQuery>();
 
     const $params = createStore('');
 
     sample({
-        clock: optionSelect,
+        clock: optionSelected,
         target: navigationModel.pushQueryFx
     })
 
     return {
-        optionSelect,
+        optionSelected,
         $params
     }
 })

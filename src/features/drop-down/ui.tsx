@@ -26,9 +26,9 @@ export const DropDown = (
         label
     }: DropDownProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const selected = options.find(option => option?.label === value) ?? options[0];
+    const selected = options.find(option => option?.value === value) ?? options[0];
     const selectRef = useRef<HTMLDivElement>(null);
-    
+
     const handlerClose = () => setIsOpen(false)
 
     useOnClickOutside(selectRef, handlerClose)

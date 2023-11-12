@@ -6,10 +6,11 @@ import styles from "./styles.module.scss"
 import { useEvent } from "effector-react"
 import { DropDown } from "features/drop-down"
 import { Input, Button, Icon } from "shared/ui"
+import { useEffect } from "react"
 
 export const SearchBar = () => {
     const { query } = useRouter()
-    const optionSelect = useEvent(filtersModel.optionSelect);
+    const optionSelected = useEvent(filtersModel.optionSelected);
 
     return <div className={clsx(styles.main)}>
         <div className={clsx(styles.search_bar)}>
@@ -26,7 +27,7 @@ export const SearchBar = () => {
                 value={query.category}
                 startIcon={<Icon type="common" name='filters' />}
                 label={"Категория"}
-                onSelect={(option) => optionSelect({ category: option.value })}
+                onSelect={(option) => optionSelected({ category: option.value })}
             />
         </div>
     </div>

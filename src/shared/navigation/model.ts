@@ -18,14 +18,13 @@ export const navigationModel = atom(() => {
     const pushQueryFx = attach({
         source: $router,
         effect: (router, query: ParsedUrlQuery | null) => {
-            console.log(router)
             router?.push({ query: { ...router.query, ...query } });
         },
     })
 
     return {
-        RouterGate,
         pushQueryFx,
+        RouterGate,
         $query,
     }
 })

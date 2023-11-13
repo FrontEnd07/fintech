@@ -1,10 +1,20 @@
-import { http } from "shared/api/config"
-import { GetProductsListParams } from "./type"
+import { http } from "shared/api"
+import type { GetProductsListParams } from "./type"
 
-export const ProductFind = (params?: GetProductsListParams) => {
-    try {
-        return http.get(`products`, { params })
-    } catch (e) {
-        console.log(e)
-    }
-}
+const LIMIT = 15;
+
+const routesConfig = http.createRoutesConfig({
+    getCatalog: http.createRoute<GetProductsListParams>(
+        ({ offset, limit, title, cetegoryId }) => ({
+            url: 'products',
+            params: {
+                offset: 0,
+                limit: LIMIT,
+                title,
+                cetegoryId
+            }
+        })
+    )
+})
+
+export const commonApi = routesConfig.build();

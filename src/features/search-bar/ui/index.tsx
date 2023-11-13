@@ -6,7 +6,7 @@ import styles from "./styles.module.scss"
 import { useEvent } from "effector-react"
 import { DropDown } from "features/drop-down"
 import { Input, Button, Icon } from "shared/ui"
-import { useEffect } from "react"
+
 
 export const SearchBar = () => {
     const { query } = useRouter()

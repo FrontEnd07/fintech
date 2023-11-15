@@ -1,10 +1,8 @@
+import { catalogModel } from 'widgets/catalog';
+import { useStore } from 'effector-react';
 import styles from './styles.module.scss';
-import clsx from 'clsx';
 import { Title } from 'shared/ui';
-import { useEvent, useStore } from 'effector-react';
-import { filtersModel } from 'features/search-bar/model';
-import { catalogModel } from '../model';
-import { useEffect } from 'react';
+import clsx from 'clsx';
 
 interface CatalogProps {
     title: string;
@@ -12,12 +10,8 @@ interface CatalogProps {
 
 export const Catalog = ({ title }: CatalogProps) => {
 
-    const params = useStore(filtersModel.$params)
+    // const params = useStore(filtersModel.$params)
     const data = useStore(catalogModel.$catalog)
-
-    useEffect(() => {
-
-    }, [])
 
     return <section className={styles.main}>
         <div className={clsx('container', styles.container)}>

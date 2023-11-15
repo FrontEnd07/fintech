@@ -1,31 +1,20 @@
-import { atom } from "shared/factory";
-import type { PageContext } from "nextjs-effector"
 import { commonApi } from "shared/api/model/product-find";
-import {
-    attach,
-    combine,
-    createEvent,
-    createStore,
-    restore,
-    sample
-} from "effector";
+import { attach, restore, sample } from "effector";
+import { createGate } from 'effector-react';
+import { atom } from "shared/factory";
 
 export const catalogModel = atom(() => {
-    const pageStarted = createEvent<PageContext>();
+    const CatalogGate = createGate();
 
-    const getCatalogFx = attach({ effect: commonApi.getCatalog })
+    const getCatalogFx = attach({ effect: commonApi.getCatalog });
+    const $catalog = restore(getCatalogFx, null);
 
-    const $catalog = restore(getCatalogFx, null)
-
-    const loadMore = createEvent();
-
-    const $limit = createStore(30)
-        .on(loadMore, (state) => state + 60)
-        .reset(pageStarted);
+    sample({
+        source: CatalogGate.open,
+        target: [getCatalogFx],
+    });
 
     return {
         $catalog,
-        pageStarted,
-        $limit
     }
 })

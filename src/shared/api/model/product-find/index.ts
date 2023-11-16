@@ -10,8 +10,7 @@ const routesConfig = http.createRoutesConfig({
             offset: 0,
             limit: LIMIT,
         }
-    }
-    )
+    })
 })
 
 export const commonApi = routesConfig.build();

@@ -13,7 +13,6 @@ const App = ({ Component, pageProps }: AppProps) => {
     useGate(navigationModel.RouterGate, { router })
 
     useGate(AppGate)
-
     return <>
         <NextNProgress color="#7f3cba" height={3} options={{ showSpinner: false }} />
         <BaseLayout>

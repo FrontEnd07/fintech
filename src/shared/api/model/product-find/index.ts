@@ -4,11 +4,11 @@ import type { GetProductsListParams } from "./type"
 const LIMIT = 15;
 
 const routesConfig = http.createRoutesConfig({
-    getCatalog: http.createRoute<void>({
-        url: '/products',
+    getItems: http.createRoute<void>({
+        url: "products",
         params: {
             offset: 0,
-            limit: LIMIT,
+            limit: LIMIT
         }
     })
 })

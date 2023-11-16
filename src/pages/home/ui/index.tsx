@@ -1,11 +1,10 @@
-import { catalogModel } from "widgets/catalog/model"
-import { Catalog } from "widgets/catalog"
+import { Items } from "./items"
 import { useGate } from "effector-react"
+import { homeModel } from "pages/home/model"
 
 export const HomePage = () => {
-    useGate(catalogModel.HomePageGate)
-
+    useGate(homeModel.HomePageGate)
     return <>
-        <Catalog title="Количество продуктов: " />
+        <Items />
     </>
 }

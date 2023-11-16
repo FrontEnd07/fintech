@@ -1,5 +1,3 @@
-import { catalogModel } from 'widgets/catalog';
-import { useStore } from 'effector-react';
 import styles from './styles.module.scss';
 import { Title } from 'shared/ui';
 import clsx from 'clsx';
@@ -9,10 +7,6 @@ interface CatalogProps {
 }
 
 export const Catalog = ({ title }: CatalogProps) => {
-
-    // const params = useStore(filtersModel.$params)
-    const data = useStore(catalogModel.$catalog)
-
     return <section className={styles.main}>
         <div className={clsx('container', styles.container)}>
             <div className={styles.top}>

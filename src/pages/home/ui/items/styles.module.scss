@@ -1,5 +1,17 @@
+@import 'shared/styles';
+
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px 9px;
+    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include md {
+        gap: 15p;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include xl {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+    }
 }

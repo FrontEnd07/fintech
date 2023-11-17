@@ -5,12 +5,12 @@
     align-items: center;
     gap: 30px;
 
-    @include mobile {
+    @include sm {
         flex-direction: row;
         gap: 30px;
     }
 
-    @include desktop {
+    @include xl {
         flex-direction: row;
         gap: 30px;
     }
@@ -24,14 +24,14 @@
 
             >.input {
                 >input {
-                    @include mobile {
+                    @include sm {
                         padding: 13px 50px;
                         padding-right: 100px;
                         padding-left: 42px;
                         font-size: 14px;
                     }
 
-                    @include desktop {
+                    @include xl {
                         padding: 13px 50px;
                         padding-right: 176px;
                         padding-left: 75px;
@@ -42,11 +42,11 @@
 
             @include shadow-medium;
 
-            @include mobile {
+            @include sm {
                 max-height: 54px;
             }
 
-            @include desktop {
+            @include xl {
                 max-height: 84px;
                 flex-grow: 1;
             }
@@ -62,13 +62,13 @@
         top: 50%;
         transform: translateY(-50%);
 
-        @include mobile {
+        @include sm {
             width: 24px;
             height: 24px;
             left: 12px;
         }
 
-        @include desktop {
+        @include xl {
             width: 32px;
             height: 32px;
             left: 24px;

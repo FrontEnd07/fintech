@@ -151,11 +151,11 @@
     line-height: 15px;
     padding: 9px 15px 10px;
 
-    @include mobile {
+    @include sm {
         min-height: 24px;
     }
 
-    @include desktop {
+    @include xl {
         min-height: 44px;
         font-size: 13.2px;
     }

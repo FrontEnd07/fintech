@@ -84,6 +84,7 @@
         display: none;
         overscroll-behavior: contain;
         -ms-overflow-style: none;
+        z-index: 2;
         scrollbar-width: none;
 
         >.option {

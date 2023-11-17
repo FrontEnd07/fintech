@@ -9,3 +9,15 @@ export interface Data<T> {
     /** Сколько страниц всего **/
     pages: number;
 }
+
+export interface ProductCategory {
+    name: string;
+}
+
+export interface ProductItems {
+    category: ProductCategory;
+    images: string[] | undefined;
+    title: string;
+    price: string;
+    id: number;
+}

@@ -17,7 +17,7 @@ export const Items = () => {
                 </Title>
             </div>
             <div className={styles.grid}>
-                {/* {data?.map((item) => <ProductItem key={item?.id} items={item} />) ?? <div>Loading...</div>} */}
+                {data?.map((item) => <ProductItem key={item.id} item={item} />) ?? <div>Loading...</div>}
             </div>
         </div>
     </section>

@@ -3,6 +3,10 @@ const { config } = require('process');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    unoptimized: true,
+    domains: ['i.imgur.com']
+  },
   reactStrictMode: true,
   trailingSlash: false,
   webpack: (config, { isServer }) => {

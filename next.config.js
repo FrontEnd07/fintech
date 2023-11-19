@@ -7,7 +7,7 @@ const nextConfig = {
     unoptimized: true,
     domains: ['i.imgur.com']
   },
-  reactStrictMode: true,
+  reactStrictMode: false,
   trailingSlash: false,
   webpack: (config, { isServer }) => {
     if (!isServer) {

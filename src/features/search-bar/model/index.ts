@@ -2,7 +2,7 @@ import { atom } from "shared/factory/atom"
 import type { ParsedUrlQuery } from "querystring";
 import { createEvent, createStore, sample } from "effector";
 import { navigationModel } from "shared/navigation";
-import { paramsToString } from "shared/lib/params-to-string";
+import { paramsToString } from "shared/lib";
 
 export const filtersModel = atom(() => {
     const optionSelected = createEvent<ParsedUrlQuery>();

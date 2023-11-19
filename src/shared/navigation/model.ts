@@ -1,8 +1,8 @@
-import { atom } from "shared/factory";
-import { createGate } from "effector-react";
-import type { NextRouter } from "next/router";
-import { attach, createStore } from "effector";
+import { attach, createStore, sample } from "effector";
 import type { ParsedUrlQuery } from "querystring";
+import type { NextRouter } from "next/router";
+import { createGate } from "effector-react";
+import { atom } from "shared/factory";
 
 export const navigationModel = atom(() => {
     const RouterGate = createGate<{ router: NextRouter }>();
@@ -15,6 +15,17 @@ export const navigationModel = atom(() => {
 
     const $query = createStore<ParsedUrlQuery | undefined | null>(null);
 
+    sample({
+        clock: $router,
+        fn: (router) => router?.query,
+        target: $query,
+    })
+
+    const pushFx = attach({
+        source: $router,
+        effect: (router, url: string) => router?.push(url)
+    })
+
     const pushQueryFx = attach({
         source: $router,
         effect: (router, query: ParsedUrlQuery | null) => {
@@ -25,6 +36,8 @@ export const navigationModel = atom(() => {
     return {
         pushQueryFx,
         RouterGate,
+        $router,
+        pushFx,
         $query,
     }
 })

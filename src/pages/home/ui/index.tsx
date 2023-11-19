@@ -4,7 +4,7 @@ import { homeModel } from "pages/home/model"
 
 export const HomePage = () => {
     useGate(homeModel.HomePageGate)
-    console.log('test')
+
     return <>
         <Items />
     </>

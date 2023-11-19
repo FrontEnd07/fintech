@@ -1,1 +1,0 @@
-export { More as default } from "pages/more"

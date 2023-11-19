@@ -9,7 +9,6 @@ import clsx from "clsx";
 export const Items = () => {
     const data = useStore(homeModel.$items);
     const params = useStore(filtersModel.$params);
-    // console.log('test', params);
 
     return <section className={styles.main}>
         <div className={clsx('container', styles.container)}>

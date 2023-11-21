@@ -18,10 +18,17 @@ export const filtersModel = atom(() => {
 
     sample({
         clock: navigationModel.$query,
+        filter: Boolean,
+        fn: ({ category }) => [],
+        target: $filters,
+    });
+
+    sample({
+        clock: navigationModel.$query,
         source: $filters,
         fn: (params) => paramsToString(params as string[]),
-        target: $params
-    })
+        target: $params,
+    });
 
     return {
         optionSelected,

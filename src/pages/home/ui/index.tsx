@@ -1,10 +1,9 @@
 import { Items } from "./items"
-import { useGate } from "effector-react"
-import { homeModel } from "pages/home/model"
+import { useEvent, useGate } from "effector-react"
+import { homeModel } from "pages/home"
+import { NextPage } from "next"
 
-export const HomePage = () => {
-    useGate(homeModel.HomePageGate)
-
+export const HomePage: NextPage = () => {
     return <>
         <Items />
     </>

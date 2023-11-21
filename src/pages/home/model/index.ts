@@ -3,43 +3,33 @@ import { commonApi } from "shared/api/model/product-find";
 import { PageContext } from "nextjs-effector";
 import { createGate } from "effector-react";
 import { atom } from "shared/factory";
+import { navigationModel } from "shared/navigation";
+import { filtersModel } from "features/search-bar/model";
 
 export const homeModel = atom(() => {
-    const HomePageGate = createGate<PageContext>();
-
+    const pageStarted = createEvent<PageContext>();
 
     const getItemsFx = attach({ effect: commonApi.getItems })
     const $items = restore(getItemsFx, null);
 
-    const loadMore = createEvent();
-
-    sample({
-        clock: HomePageGate.open,
-        target: [getItemsFx]
-    })
-
-    const $limit = createStore(5)
-        .on(loadMore, (state) => state + 5)
-        .reset(HomePageGate.open)
-
     const $pageContext = createStore<PageContext | null>(null)
 
     sample({
-        clock: HomePageGate.open,
+        clock: pageStarted,
         target: $pageContext
     })
 
-    const $params = combine({ context: $pageContext, limit: $limit })
+    const $params = combine({ context: $pageContext, limit: 5 })
 
     sample({
-        clock: HomePageGate.open,
+        clock: pageStarted,
         source: $params,
         fn: ({ limit, context }) => ({ ...context?.query, limit }),
-        target: getItemsFx
+        target: getItemsFx,
     })
 
     return {
-        HomePageGate,
+        pageStarted,
         $items
     }
 })

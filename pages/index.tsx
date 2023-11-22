@@ -1,9 +1,8 @@
-import { HomePage } from "pages/home";
-import { createGIT } from "pages/shared";
-import { homeModel } from "pages/home";
+import { homeModel } from "pages/home"
+import { createGSSP } from "pages/shared"
 
-HomePage.getInitialProps = createGIT({
-    pageEvent: homeModel.pageStarted
+export const getServerSideProps = createGSSP({
+    pageEvent: homeModel.pageStarted,
 })
 
-export default HomePage
+export { HomePage as default } from "pages/home"

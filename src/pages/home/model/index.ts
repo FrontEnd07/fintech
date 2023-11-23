@@ -1,8 +1,8 @@
 import { attach, restore, sample, createEvent } from "effector";
-import { commonApi } from "shared/api/model/product-find";
 import { navigationModel } from "shared/navigation";
 import type { PageContext } from "nextjs-effector";
 import { createGate } from "effector-react";
+import { commonApi } from "shared/api";
 import { atom } from "shared/factory";
 
 export const homeModel = atom(() => {

@@ -1,5 +1,5 @@
-import { ProductItems } from "shared/api/types";
-import { http } from "shared/api"
+import { ProductCategory, ProductItems } from "./types";
+import { http } from "./config"
 
 const LIMIT = 15;
 
@@ -10,6 +10,9 @@ const routesConfig = http.createRoutesConfig({
             offset: 0,
             limit: LIMIT
         }
+    }),
+    getCategory: http.createRoute<void, ProductCategory[]>({
+        url: "categories"
     })
 })
 

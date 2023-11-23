@@ -1,9 +1,9 @@
-import clsx from "clsx";
-import { Icon } from "shared/ui/icon";
-import styles from "./styles.module.scss";
-import type { SelectOption } from "./types";
-import { ReactNode, useState, useRef } from "react";
 import { useOnClickOutside } from "shared/lib/use-on-click-outside";
+import { ReactNode, useState, useRef } from "react";
+import type { SelectOption } from "./types";
+import styles from "./styles.module.scss";
+import { Icon } from "shared/ui/icon";
+import clsx from "clsx";
 
 interface DropDownProps {
     options: SelectOption[];
@@ -41,9 +41,11 @@ export const DropDown = (
     return <div className={clsx(styles.main, isOpen && styles.isOpen, className)} ref={selectRef}>
         <div onClick={() => setIsOpen(prev => !prev)} className={clsx(styles.button)}>
             {startIcon && <span className={styles.icon}>{startIcon}</span>}
+
             <span className={clsx(styles.value)}>
                 {selected.value ? selected.label : label}
             </span>
+
             <span className={clsx(styles.arrow)}>
                 <Icon type="common" name="chevron" />
             </span>
@@ -51,6 +53,7 @@ export const DropDown = (
         <div className={clsx(styles.options, styles[placement])}>
             {options?.map((option) => {
                 const isSelected = selected.value === option?.value;
+
                 return <div
                     onClick={() => handlerSelect(option)}
                     key={option.label}

@@ -1,6 +1,5 @@
+import { ProductItems } from "shared/api/types";
 import { http } from "shared/api"
-import { ProductItems, Data } from "shared/api/types";
-import type { GetProductsListParams } from "./type"
 
 const LIMIT = 15;
 

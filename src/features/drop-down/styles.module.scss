@@ -4,53 +4,58 @@
     position: relative;
 
     >.button {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: var(--color-light-grey);
-        padding: 8px 15px;
-        border-radius: var(--radius);
-        cursor: pointer;
-        transition: background-color var(--duration);
+        position: relative;
+        overflow: hidden;
+
+        >div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--color-light-grey);
+            padding: 8px 15px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: background-color var(--duration);
 
 
-        &:hover {
-            background-color: rgba(153, 153, 191, 0.2);
-        }
-
-        >.value {
-            margin-right: 14px;
-        }
-
-        >.arrow,
-        >.icon {
-            display: block;
-        }
-
-        >.icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-            filter: brightness(0) saturate(100%) invert(86%) sepia(6%) saturate(264%) hue-rotate(214deg) brightness(82%) contrast(86%);
-
-            svg {
-                width: 100%;
-                height: 100%;
+            &:hover {
+                background-color: rgba(153, 153, 191, 0.2);
             }
-        }
 
-        >.arrow {
-            width: 14px;
-            height: 14px;
-            display: block;
-            fill: rgba(rgba(145, 120, 120, 0.6), 0.6);
-            transform: rotate(270deg);
-            transition: transform var(--duration);
+            >.value {
+                margin-right: 14px;
+            }
 
-            svg {
+            >.arrow,
+            >.icon {
                 display: block;
-                width: 100%;
-                height: 100%;
+            }
+
+            >.icon {
+                width: 24px;
+                height: 24px;
+                margin-right: 10px;
+                filter: brightness(0) saturate(100%) invert(86%) sepia(6%) saturate(264%) hue-rotate(214deg) brightness(82%) contrast(86%);
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            >.arrow {
+                width: 14px;
+                height: 14px;
+                display: block;
+                fill: rgba(rgba(145, 120, 120, 0.6), 0.6);
+                transform: rotate(270deg);
+                transition: transform var(--duration);
+
+                svg {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
     }

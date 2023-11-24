@@ -10,7 +10,7 @@ interface DropDownProps {
     placement?: 'bottom-start' | 'bottom-end';
     value: String | string[] | undefined;
     skeletonLoading?: Boolean;
-    options: SelectOption[];
+    options: SelectOption[] | undefined;
     startIcon?: ReactNode;
     className?: string;
     label: string;
@@ -28,9 +28,8 @@ export const DropDown = (
         label
     }: DropDownProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const selected = options.find(option => option?.value === value) ?? options[0];
+    const selected = options?.find(option => option.value === value) ?? { value: '', label: '' };
     const selectRef = useRef<HTMLDivElement>(null);
-
     const handlerClose = () => setIsOpen(false)
 
     useOnClickOutside(selectRef, handlerClose)
@@ -45,16 +44,18 @@ export const DropDown = (
         styles.main,
         { [styles.isOpen]: isOpen }
     )} ref={selectRef}>
-        <div onClick={() => !skeletonLoading && setIsOpen(prev => !prev)} className={clsx(styles.button, { [styles.skeleton]: skeletonLoading })}>
-            {startIcon && <span className={styles.icon}>{startIcon}</span>}
+        <div onClick={() => !skeletonLoading && setIsOpen(prev => !prev)} className={clsx(styles.button)}>
+            <div className={clsx({ [styles.skeleton]: skeletonLoading })}>
+                {startIcon && <span className={styles.icon}>{startIcon}</span>}
 
-            <span className={clsx(styles.value)}>
-                {selected.value ? selected.label : label}
-            </span>
+                <span className={clsx(styles.value)}>
+                    {selected.value ? selected.label : label}
+                </span>
 
-            <span className={clsx(styles.arrow)}>
-                <Icon type="common" name="chevron" />
-            </span>
+                <span className={clsx(styles.arrow)}>
+                    <Icon type="common" name="chevron" />
+                </span>
+            </div>
         </div>
         <div className={clsx(styles.options, styles[placement])}>
             {options?.map((option) => {
@@ -62,7 +63,7 @@ export const DropDown = (
 
                 return <div
                     onClick={() => handlerSelect(option)}
-                    key={option.label}
+                    key={option.value}
                     className={clsx(styles.option, isSelected && styles.isSelected)}>
                     {option?.label}
                     <span className={styles.check}>

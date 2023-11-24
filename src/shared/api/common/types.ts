@@ -12,10 +12,10 @@ export interface Data<T> {
 
 export interface ProductCategory {
     name: string;
-    creationAt: string;
+    creationAt?: string;
     id: number;
-    image: string;
-    updateAt: string;
+    image?: string;
+    updateAt?: string;
 }
 
 export interface ProductItems {

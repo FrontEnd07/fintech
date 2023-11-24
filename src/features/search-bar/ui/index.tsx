@@ -30,7 +30,7 @@ export const SearchBar = () => {
                 skeletonLoading={pending}
                 value={query.category}
                 label={"Категория"}
-                options={generes} />
+                options={category} />
         </div>
     </div>
 }

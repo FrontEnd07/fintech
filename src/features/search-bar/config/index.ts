@@ -1,7 +1,7 @@
 import { SelectOption } from "../types";
 
 export const generes: SelectOption[] = [
-    { value: "", label: "Фильтр" },
+    { value: "", label: "Все" },
     { value: "1", label: "Электроника" },
     { value: "2", label: "Обувь" },
     { value: "3", label: "Другое" }

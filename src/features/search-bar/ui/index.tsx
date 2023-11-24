@@ -27,6 +27,7 @@ export const SearchBar = () => {
             <DropDown
                 onSelect={(option) => optionSelected({ category: option.value })}
                 startIcon={<Icon type="common" name='filters' />}
+                skeletonLoading={pending}
                 value={query.category}
                 label={"Категория"}
                 options={generes} />

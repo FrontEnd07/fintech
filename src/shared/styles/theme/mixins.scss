@@ -1,5 +1,5 @@
 @mixin skeleton {
-    cursor: default;
+    cursor: default !important;
     color: rgba($color: #fff, $alpha: 0.4);
 
     &::after {

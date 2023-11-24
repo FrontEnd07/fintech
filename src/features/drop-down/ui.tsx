@@ -43,12 +43,9 @@ export const DropDown = (
     return <div className={clsx(
         className,
         styles.main,
-        {
-            [styles.isOpen]: isOpen,
-            [styles.skeleton]: skeletonLoading,
-        }
+        { [styles.isOpen]: isOpen }
     )} ref={selectRef}>
-        <div onClick={() => setIsOpen(prev => !prev)} className={clsx(styles.button)}>
+        <div onClick={() => !skeletonLoading && setIsOpen(prev => !prev)} className={clsx(styles.button, { [styles.skeleton]: skeletonLoading })}>
             {startIcon && <span className={styles.icon}>{startIcon}</span>}
 
             <span className={clsx(styles.value)}>

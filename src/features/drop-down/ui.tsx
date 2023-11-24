@@ -1,28 +1,30 @@
-import clsx from "clsx";
-import { Icon } from "shared/ui/icon";
-import styles from "./styles.module.scss";
-import type { SelectOption } from "./types";
-import { ReactNode, useState, useRef } from "react";
 import { useOnClickOutside } from "shared/lib/use-on-click-outside";
+import { ReactNode, useState, useRef } from "react";
+import type { SelectOption } from "./types";
+import styles from "./styles.module.scss";
+import { Icon } from "shared/ui/icon";
+import clsx from "clsx";
 
 interface DropDownProps {
-    options: SelectOption[];
-    value: String | string[] | undefined;
-    placement?: 'bottom-start' | 'bottom-end';
-    label: string;
-    className?: string;
-    startIcon?: ReactNode;
     onSelect: (option: SelectOption) => void;
+    placement?: 'bottom-start' | 'bottom-end';
+    value: String | string[] | undefined;
+    skeletonLoading?: Boolean;
+    options: SelectOption[];
+    startIcon?: ReactNode;
+    className?: string;
+    label: string;
 }
 
 export const DropDown = (
     {
-        className,
-        options,
-        onSelect,
-        value,
         placement = 'bottom-start',
+        skeletonLoading,
         startIcon,
+        className,
+        onSelect,
+        options,
+        value,
         label
     }: DropDownProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -38,7 +40,14 @@ export const DropDown = (
         handlerClose();
     }
 
-    return <div className={clsx(styles.main, isOpen && styles.isOpen, className)} ref={selectRef}>
+    return <div className={clsx(
+        className,
+        styles.main,
+        {
+            [styles.isOpen]: isOpen,
+            [styles.skeleton]: skeletonLoading,
+        }
+    )} ref={selectRef}>
         <div onClick={() => setIsOpen(prev => !prev)} className={clsx(styles.button)}>
             {startIcon && <span className={styles.icon}>{startIcon}</span>}
             <span className={clsx(styles.value)}>

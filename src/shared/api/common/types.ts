@@ -12,6 +12,10 @@ export interface Data<T> {
 
 export interface ProductCategory {
     name: string;
+    creationAt: string;
+    id: number;
+    image: string;
+    updateAt: string;
 }
 
 export interface ProductItems {
@@ -20,4 +24,11 @@ export interface ProductItems {
     title: string;
     price: string;
     id: number;
+}
+
+export type GetProductsListParams = {
+    offset?: number;
+    limit?: number;
+    title?: string | null;
+    cetegoryId?: string | null;
 }

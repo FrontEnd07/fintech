@@ -50,9 +50,11 @@ export const DropDown = (
     )} ref={selectRef}>
         <div onClick={() => setIsOpen(prev => !prev)} className={clsx(styles.button)}>
             {startIcon && <span className={styles.icon}>{startIcon}</span>}
+
             <span className={clsx(styles.value)}>
                 {selected.value ? selected.label : label}
             </span>
+
             <span className={clsx(styles.arrow)}>
                 <Icon type="common" name="chevron" />
             </span>
@@ -60,6 +62,7 @@ export const DropDown = (
         <div className={clsx(styles.options, styles[placement])}>
             {options?.map((option) => {
                 const isSelected = selected.value === option?.value;
+
                 return <div
                     onClick={() => handlerSelect(option)}
                     key={option.label}

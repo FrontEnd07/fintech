@@ -18,6 +18,14 @@
         padding-bottom: 100%;
         overflow: hidden;
         border-radius: 18px;
+        width: 100%;
+
+        .image {
+            background: #ddd;
+            background-size: contain;
+            display: block;
+            object-fit: contain;
+        }
     }
 
     &_content {

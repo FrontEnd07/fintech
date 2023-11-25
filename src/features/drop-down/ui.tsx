@@ -10,7 +10,7 @@ interface DropDownProps {
     placement?: 'bottom-start' | 'bottom-end';
     value: String | string[] | undefined;
     skeletonLoading?: Boolean;
-    options: SelectOption[] | undefined;
+    options: SelectOption[];
     startIcon?: ReactNode;
     className?: string;
     label: string;
@@ -28,7 +28,8 @@ export const DropDown = (
         label
     }: DropDownProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const selected = options?.find(option => option.value === value) ?? { value: '', label: '' };
+    const selected = options.find(option => option.value === value) ?? { value: '', label: 'Все' };
+
     const selectRef = useRef<HTMLDivElement>(null);
     const handlerClose = () => setIsOpen(false)
 

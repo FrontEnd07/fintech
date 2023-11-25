@@ -1,4 +1,4 @@
-import { ProductItems } from "shared/api/types";
+import { ProductItems } from "shared/api";
 import styles from "./styles.module.scss";
 import { paths } from "shared/routing";
 import Image from "next/image";

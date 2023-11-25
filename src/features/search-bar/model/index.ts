@@ -11,7 +11,8 @@ export const filtersModel = atom(() => {
     const $params = createStore('');
 
     const getCategoryFx = attach({ effect: commonApi.getCategory });
-    const $category = restore(getCategoryFx, null)
+
+    const $category = restore(getCategoryFx, null);
 
     sample({
         clock: optionSelected,

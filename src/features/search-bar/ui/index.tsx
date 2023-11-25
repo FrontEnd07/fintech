@@ -1,11 +1,10 @@
-import clsx from "clsx"
-import { generes } from "../config"
-import { filtersModel } from "../model"
-import { useRouter } from "next/router"
-import styles from "./styles.module.scss"
+import { filtersModel } from "features/search-bar/model"
 import { useEvent, useStore } from "effector-react"
-import { DropDown } from "features/drop-down"
 import { Input, Button, Icon } from "shared/ui"
+import { DropDown } from "features/drop-down"
+import styles from "./styles.module.scss"
+import { useRouter } from "next/router"
+import clsx from "clsx"
 
 
 export const SearchBar = () => {
@@ -13,7 +12,11 @@ export const SearchBar = () => {
     const optionSelected = useEvent(filtersModel.optionSelected);
     const pending = useStore(filtersModel.$pending);
     const category = useStore(filtersModel.$category)
-    console.log(category)
+    console.log("test", category)
+    const convertCategory = category?.map(el => ({
+        value: el?.id?.toString(),
+        label: el?.name
+    })) || [];
 
     return <div className={clsx(styles.main)}>
         <div className={clsx(styles.search_bar)}>
@@ -25,12 +28,12 @@ export const SearchBar = () => {
         </div>
         <div className={clsx(styles.serach_filter)}>
             <DropDown
-                onSelect={(option) => optionSelected({ category: option.value })}
+                onSelect={(option) => optionSelected({ categoryId: option.value })}
                 startIcon={<Icon type="common" name='filters' />}
                 skeletonLoading={pending}
-                value={query.category}
+                value={query.categoryId}
                 label={"Категория"}
-                options={category} />
+                options={convertCategory} />
         </div>
     </div>
 }

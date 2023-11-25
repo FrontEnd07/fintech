@@ -1,6 +1,7 @@
 import { attach, restore, sample, createEvent } from "effector";
 import { navigationModel } from "shared/navigation";
 import type { PageContext } from "nextjs-effector";
+import { filtersModel } from "features/search-bar"
 import { createGate } from "effector-react";
 import { commonApi } from "shared/api";
 import { atom } from "shared/factory";
@@ -15,7 +16,7 @@ export const homeModel = atom(() => {
 
     sample({
         clock: HomePageGate.open,
-        target: getItemsFx
+        target: [getItemsFx, filtersModel.getCategoryFx]
     })
 
     sample({

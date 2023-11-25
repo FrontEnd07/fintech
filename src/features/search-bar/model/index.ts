@@ -3,7 +3,6 @@ import { navigationModel } from "shared/navigation";
 import type { ParsedUrlQuery } from "querystring";
 import { atom } from "shared/factory/atom"
 import { commonApi } from "shared/api";
-import { homeModel } from "pages/home";
 
 export const filtersModel = atom(() => {
     const optionSelected = createEvent<ParsedUrlQuery>();
@@ -12,22 +11,23 @@ export const filtersModel = atom(() => {
 
     const getCategoryFx = attach({ effect: commonApi.getCategory });
 
-    const $category = restore(getCategoryFx, null);
+    const $category = restore(getCategoryFx, null).map(state =>
+        state?.map(el => ({
+            value: el?.id?.toString(),
+            label: el?.name
+        })) || []
+    );
 
     sample({
         clock: optionSelected,
         target: navigationModel.pushQueryFx
     })
 
-    sample({
-        clock: homeModel.HomePageGate.open,
-        target: [getCategoryFx]
-    })
-
     const $pending = getCategoryFx.pending;
 
     return {
         optionSelected,
+        getCategoryFx,
         $category,
         $pending,
         $params,

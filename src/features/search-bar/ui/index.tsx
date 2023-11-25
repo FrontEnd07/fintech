@@ -12,11 +12,7 @@ export const SearchBar = () => {
     const optionSelected = useEvent(filtersModel.optionSelected);
     const pending = useStore(filtersModel.$pending);
     const category = useStore(filtersModel.$category)
-    console.log("test", category)
-    const convertCategory = category?.map(el => ({
-        value: el?.id?.toString(),
-        label: el?.name
-    })) || [];
+    
 
     return <div className={clsx(styles.main)}>
         <div className={clsx(styles.search_bar)}>
@@ -33,7 +29,7 @@ export const SearchBar = () => {
                 skeletonLoading={pending}
                 value={query.categoryId}
                 label={"Категория"}
-                options={convertCategory} />
+                options={category} />
         </div>
     </div>
 }

@@ -2,7 +2,12 @@ import { attach, createEvent, createStore, restore, sample } from "effector";
 import { navigationModel } from "shared/navigation";
 import type { ParsedUrlQuery } from "querystring";
 import { atom } from "shared/factory/atom"
-import { commonApi } from "shared/api";
+import { ProductCategory, commonApi } from "shared/api";
+
+interface SelectOption {
+    value: string | undefined;
+    label: string | undefined;
+}
 
 export const filtersModel = atom(() => {
     const optionSelected = createEvent<ParsedUrlQuery>();
@@ -11,12 +16,10 @@ export const filtersModel = atom(() => {
 
     const getCategoryFx = attach({ effect: commonApi.getCategory });
 
-    const $category = restore(getCategoryFx, null).map(state =>
-        state?.map(el => ({
-            value: el?.id?.toString(),
-            label: el?.name
-        })) || []
-    );
+    const $category = restore(getCategoryFx, null)
+        .on(getCategoryFx.done, state => state)
+
+    const options = $category.map((state) => ({ value: state?.id?.toString(), label: state?.name }))
 
     sample({
         clock: optionSelected,
@@ -30,6 +33,7 @@ export const filtersModel = atom(() => {
         getCategoryFx,
         $category,
         $pending,
+        options,
         $params,
     }
 })

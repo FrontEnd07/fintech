@@ -6,13 +6,17 @@ import styles from "./styles.module.scss"
 import { useRouter } from "next/router"
 import clsx from "clsx"
 
+interface SelectOption {
+    value: string | undefined;
+    label: string | undefined;
+}
 
 export const SearchBar = () => {
     const { query } = useRouter()
     const optionSelected = useEvent(filtersModel.optionSelected);
     const pending = useStore(filtersModel.$pending);
-    const category = useStore(filtersModel.$category)
-    
+    const category = useStore(filtersModel.options)
+    console.log(category);
 
     return <div className={clsx(styles.main)}>
         <div className={clsx(styles.search_bar)}>
@@ -23,13 +27,13 @@ export const SearchBar = () => {
             <Button className={styles.button} skeletonLoading={false}>Поиск</Button>
         </div>
         <div className={clsx(styles.serach_filter)}>
-            <DropDown
+            {/* <DropDown
                 onSelect={(option) => optionSelected({ categoryId: option.value })}
                 startIcon={<Icon type="common" name='filters' />}
                 skeletonLoading={pending}
                 value={query.categoryId}
                 label={"Категория"}
-                options={category} />
+                options={category} /> */}
         </div>
     </div>
 }

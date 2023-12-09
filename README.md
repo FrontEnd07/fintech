@@ -1,3 +1,3 @@
-Next js/n
-Effector js/n
-Feature Slice Design/n
+Next js<br>
+Effector js<br>
+Feature Slice Design<br>

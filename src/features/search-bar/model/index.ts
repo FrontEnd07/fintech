@@ -4,11 +4,6 @@ import type { ParsedUrlQuery } from "querystring";
 import { atom } from "shared/factory/atom"
 import { ProductCategory, commonApi } from "shared/api";
 
-interface SelectOption {
-    value: string | undefined;
-    label: string | undefined;
-}
-
 export const filtersModel = atom(() => {
     const optionSelected = createEvent<ParsedUrlQuery>();
 
@@ -16,8 +11,7 @@ export const filtersModel = atom(() => {
 
     const getCategoryFx = attach({ effect: commonApi.getCategory });
 
-    const $category = restore(getCategoryFx, null)
-        .on(getCategoryFx.done, state => state)
+    const $category = restore(getCategoryFx, mapParams: state)
 
     const options = $category.map((state) => ({ value: state?.id?.toString(), label: state?.name }))
 
